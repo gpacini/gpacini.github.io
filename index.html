@@ -1,0 +1,616 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<head>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<link href="open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
+<style>
+
+.timeline {
+    list-style: none;
+    padding: 20px 0 20px;
+    position: relative;
+}
+
+    .timeline:before {
+        top: 0;
+        bottom: 0;
+        position: absolute;
+        content: " ";
+        width: 3px;
+        background-color: #eeeeee;
+        left: 50%;
+        margin-left: -1.5px;
+    }
+
+    .timeline > li {
+        margin-bottom: 20px;
+        position: relative;
+    }
+
+        .timeline > li:before,
+        .timeline > li:after {
+            content: " ";
+            display: table;
+        }
+
+        .timeline > li:after {
+            clear: both;
+        }
+
+        .timeline > li:before,
+        .timeline > li:after {
+            content: " ";
+            display: table;
+        }
+
+        .timeline > li:after {
+            clear: both;
+        }
+
+        .timeline > li > .timeline-panel {
+            width: 46%;
+            float: left;
+            border: 1px solid #d4d4d4;
+            border-radius: 2px;
+            padding: 20px;
+            position: relative;
+            -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+        }
+
+            .timeline > li > .timeline-panel:before {
+                position: absolute;
+                top: 26px;
+                right: -15px;
+                display: inline-block;
+                border-top: 15px solid transparent;
+                border-left: 15px solid #ccc;
+                border-right: 0 solid #ccc;
+                border-bottom: 15px solid transparent;
+                content: " ";
+            }
+
+            .timeline > li > .timeline-panel:after {
+                position: absolute;
+                top: 27px;
+                right: -14px;
+                display: inline-block;
+                border-top: 14px solid transparent;
+                border-left: 14px solid #fff;
+                border-right: 0 solid #fff;
+                border-bottom: 14px solid transparent;
+                content: " ";
+            }
+
+        .timeline > li > .timeline-badge {
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            font-size: 1.4em;
+            text-align: center;
+            position: absolute;
+            top: 16px;
+            left: 50%;
+            margin-left: -25px;
+            background-color: #999999;
+            z-index: 100;
+            border-top-right-radius: 50%;
+            border-top-left-radius: 50%;
+            border-bottom-right-radius: 50%;
+            border-bottom-left-radius: 50%;
+        }
+
+        .timeline > li.timeline-inverted > .timeline-panel {
+            float: right;
+        }
+
+            .timeline > li.timeline-inverted > .timeline-panel:before {
+                border-left-width: 0;
+                border-right-width: 15px;
+                left: -15px;
+                right: auto;
+            }
+
+            .timeline > li.timeline-inverted > .timeline-panel:after {
+                border-left-width: 0;
+                border-right-width: 14px;
+                left: -14px;
+                right: auto;
+            }
+
+.timeline-badge.primary {
+    background-color: #2e6da4 !important;
+}
+
+.timeline-badge.success {
+    background-color: #3f903f !important;
+}
+
+.timeline-badge.warning {
+    background-color: #f0ad4e !important;
+}
+
+.timeline-badge.danger {
+    background-color: #d9534f !important;
+}
+
+.timeline-badge.info {
+    background-color: #5bc0de !important;
+}
+
+.timeline-title {
+    margin-top: 0;
+    color: inherit;
+}
+
+.timeline-body > p,
+.timeline-body > ul {
+    margin-bottom: 0;
+}
+
+    .timeline-body > p + p {
+        margin-top: 5px;
+    }
+
+@media (max-width: 767px) {
+    ul.timeline:before {
+        left: 40px;
+    }
+
+    ul.timeline > li > .timeline-panel {
+        width: calc(100% - 90px);
+        width: -moz-calc(100% - 90px);
+        width: -webkit-calc(100% - 90px);
+    }
+
+    ul.timeline > li > .timeline-badge {
+        left: 15px;
+        margin-left: 0;
+        top: 16px;
+    }
+
+    ul.timeline > li > .timeline-panel {
+        float: right;
+    }
+
+        ul.timeline > li > .timeline-panel:before {
+            border-left-width: 0;
+            border-right-width: 15px;
+            left: -15px;
+            right: auto;
+        }
+
+        ul.timeline > li > .timeline-panel:after {
+            border-left-width: 0;
+            border-right-width: 14px;
+            left: -14px;
+            right: auto;
+        }
+}
+
+  #wrapper {
+    width: 100%;
+  }
+  #title {
+    width: 100%;
+  }
+  #titleh1 {
+    font-weight: bold;
+    text-align: center;
+  }
+  #navbarSupportedContent {
+    margin: auto;
+      display: inline-block
+      align-content: center;
+  }
+  #menu-bar {
+    width: 100%;
+  }
+  .navbar-nav {
+    margin: 0 auto;
+    text-align: center;
+  }
+  .navbar-nav li {
+      float: none;
+      display: inline-block;
+      padding-left: 15px;
+      padding-right: 15px;
+  }
+  #header {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+  }
+  #perfil {
+    position: fixed;
+    width: 25%;
+    left: 0;
+    top: 120px;
+    height: 400px;
+  }
+  img{
+    width: 100%;
+    height: 100%;
+  }
+  #content{
+    position: absolute;
+    width: 70%;
+    left: 28%;
+    margin-top: 120px;
+  }
+  .text-center{
+    text-align: center;
+  }
+  #fullstack-img {
+    width: 30%;
+    height: 30%;
+    margin: 0 auto;
+  }
+  #over-image-text{
+    position: absolute;
+    top: 30px;
+    left: 16px;
+    width: 95%;
+  }
+  #over-image-text p {
+    color: #00a00d;
+  }
+  .azul{
+    float: left;
+  }
+  .hab-list{
+    list-style-type: none;
+    padding: 0;
+  }
+  .hab-list li{
+    color: #00a00d;
+    margin: 3px 0;
+    padding: 0;
+  }
+  .hab-title{
+    font-weight: bold;
+  }
+  .bold{
+    font-weight: bold;
+  }
+  #perfil p{
+    padding: 2px 0;
+    margin: 2px 0;
+  }
+  .experiencia {
+    float: left;
+    background-color: lightgray;
+    border-radius: 25px;
+    padding: 25px;
+    margin: 10px 0;
+  }
+  .experiencia-sep {
+    float:left;
+  }
+  #myModal {
+    width: 100%;
+  }
+</style>
+</head>
+<body>
+  <div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+<!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Ejemplo de Wodap App</h4>
+      </div>
+      <div class="modal-body">
+        <div data-snack-id="@yankrlangas/generadordenumeros" data-snack-platform="ios" data-snack-preview="true" data-snack-theme="dark" style="overflow:hidden;background:#212733;border:1px solid rgba(0,0,0,.08);border-radius:4px;height:505px;width:100%"></div>
+        <script async src="https://snack.expo.io/embed.js"></script>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="dialog" title="Wodap">
+</div>
+  <div id="wrapper">
+    <div id="header">
+      <div id="menu-bar" class="bg-light">
+        <div id="title" class="center-block">
+          <h1 id="titleh1">&lt;Giancarlo Pacini &sol;&gt;</h1>
+        </div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse center-block" id="navbarSupportedContent" >
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="#content"><span class="oi oi-home" title="home" aria-hidden="true"></span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#habilidades">Habilidades <span class="oi oi-terminal" title="terminal" aria-hidden="true"></span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#experiencia">Experiencia <span class="oi oi-monitor" title="monitor" aria-hidden="true"></span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#estudios">Estudios <span class="oi oi-task" title="task" aria-hidden="true"></span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#otros">Otros <span class="oi oi-circle-check" title="circle-check" aria-hidden="true"></span></a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <div id="perfil">
+      <div class="col-md-8 offset-md-2">
+        <img src="images/yo.jpg" />
+      </div>
+      <div class="col-md-12">
+        <p>26 a&ntilde;os</p>
+        <p>Quito, Pichincha, Ecuador</p>
+        <p><span class="bold">Direcci&oacute;n: </span>Av. El Parque N43</p>
+        <p><span class="bold">Tel&eacute;fono: </span>2455175</p>
+        <p><span class="bold">Celular: </span>0995345899</p>
+        <p><span class="bold">Correo: </span>gpacinip@gmail.com</p>
+        <p><span class="bold">Correo: </span>gpacini@estud.usfq.edu.ec</p>
+      </div>
+    </div>
+    <div id="content">
+      <div id="habilidades" class="col-md-12">
+        <h2>&lt;Habilidades &sol;&gt;</h2>
+        <div class="col-md-4 offset-md-4 text-center">
+          <img id="fullstack-img" src="images/fullstack.png">
+          <h3>Full Stack Developer</h3>
+        </div>
+        <div class="col-md-12">
+          <img id="terminal-img" src="images/terminal.png" />
+          <div id="over-image-text">
+            <div>
+              <div class="col-md-12 azul">
+                <p id="list-box">Giancarlo Pacini: $ </p>
+              </div>
+              <div class="col-md-3 azul">
+                <p class="habilidad-title hab-title"></p>
+                <ul class="hab-list" id="habilidad-list"></ul>
+              </div>
+              <div class="col-md-3 azul">
+                <p class="lenguaje-title hab-title"></p>
+                <ul class="hab-list" id="lenguaje-list"></ul>
+              </div>
+              <div class="col-md-3 azul">
+                <p class="plataforma-title hab-title"></p>
+                <ul class="hab-list" id="plataforma-list"></ul>
+              </div>
+              <div class="col-md-3 azul">
+                <p class="progreso-title hab-title"></p>
+                <ul class="hab-list" id="progreso-list"></ul>
+              </div>
+              <div class="col-md-12 azul">
+                  <p id="idioma-box"></p>
+              </div>
+              <div class="col-md-3 azul">
+                <p class="idioma-title hab-title"></p>
+                <ul class="hab-list" id="idioma-list"></ul>
+              </div>
+              <div class="col-md-3 azul">
+                <p class="escribir-title hab-title"></p>
+                <ul class="hab-list" id="escribir-list"></ul>
+              </div>
+              <div class="col-md-3 azul">
+                <p class="hablar-title hab-title"></p>
+                <ul class="hab-list" id="hablar-list"></ul>
+              </div>
+              <div class="col-md-3 azul">
+                <p class="escuchar-title hab-title"></p>
+                <ul class="hab-list" id="escuchar-list"></ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="experiencia" class="col-md-12">
+        <h2>&lt;Experiencia &sol;&gt;</h2>
+        <div class="row"></div>
+      </div>
+      <div id="estudios" class="col-md-12">
+        <h2>&lt;Estudios &sol;&gt;</h2>
+        <ul class="timeline">
+        <li>
+          <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Julio 2012 - Mayo 2018: Ingenier&iacute;a en Sistemas</h4>
+            </div>
+            <div class="timeline-body">
+              <p>Universidad San Francisco de Quito</p>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-inverted">
+          <div class="timeline-badge"><i class="glyphicon glyphicon-check"></i></div>
+          <div class="timeline-panel">
+            <div class="timeline-heading">
+              <h4 class="timeline-title">Agosto 2009: Bachillerato en Ciencias</h4>
+            </div>
+            <div class="timeline-body">
+              <p>Colegio William Shakespeare School</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+      </div>
+      <div id="otros" class="col-md-12">
+        <h2>&lt;Otros &sol;&gt;</h2>
+        <p>
+          <span class='bold'>Conocimientos en: </span> Adobe Ilustrator, Adobe Photoshop, OpenVPN, SSL, OpenSSL, Bases de Datos, Microsoft Office, Configuracion Servidores, Linux, Ubuntu, CentOS, ClearOS, Firewall, Proxy, Content Filter.
+        </p>
+      </div>
+    </div>
+  </div>
+  <script>
+  $.fn.isInViewport = function() {
+    var elementTop = $(this).offset().top;
+    var elementBottom = elementTop + $(this).outerHeight();
+
+    var viewportTop = $(window).scrollTop();
+    var viewportBottom = viewportTop + $(window).height();
+
+    return elementBottom > viewportTop && elementTop < viewportBottom;
+  };
+
+  $(window).on("load", function(){
+    interval = setInterval(addElementToTerminal, 80);
+    experiencias.map((v, i)=> {
+      $("#experiencia .row").append(addExperienciaLaboral(v));
+    });
+    var maxHeight = Math.max.apply(null, $(".experiencia").map(function ()
+    {
+      return $(this).height();
+    }).get());
+    $(".experiencia").height(maxHeight);
+  });
+
+  var firstText = "list habilidades lenguaje plataforma progreso";
+  var currentItem = 0;
+  var interval;
+  var itemTwo = 0;
+  var titlesPrinted = false;
+  var titles = ["Habilidad", "Lenguaje", "Plataforma", "Progreso"];
+
+  var habilidades =["JavaEE"     ,"React-Native", "MySQL"  ,"JQuery"    ,"Android" ,"iOS"   , "CodeIgniter"];
+  var lenguajes =  ["Java"       ,"JavaScript"  , "SQL"    ,"JavaScript","Java"    ,"Swift" , "PHP"        ];
+  var plataformas =["Server/Web" ,"M&oacute;vil"       , "Server" ,"Web"       ,"Android" ,"iOS"   , "Server/Web" ];
+  var progresos =  ["100/100"    ,"90/100"      , "100/100","80/100"    ,"100/100" ,"70/100", "100/100"    ];
+
+  var idiomaTitle = ["Idioma", "Escribir", "Hablar", "Escuchar"];
+
+  function addElementToTerminal(){
+    $('#list-box').append(firstText[currentItem]);
+    currentItem++;
+    if( itemTwo == habilidades.length ){
+      clearInterval(interval);
+      currentItem = 0;
+      itemTwo = 0;
+      titlesPrinted = false;
+      $('#idioma-box').append("Giancarlo Pacini: $ ")
+      interval = setInterval(addElementToTerminalLanguage, 80);
+      return;
+    }
+    if( currentItem > firstText.length ){
+      if(!titlesPrinted){
+        $(".habilidad-title").append(titles[0]);
+        $(".lenguaje-title").append(titles[1]);
+        $(".plataforma-title").append(titles[2]);
+        $(".progreso-title").append(titles[3]);
+        titlesPrinted = true;
+      } else {
+        $("#habilidad-list").append("<li>"+habilidades[itemTwo]+"</li>");
+        $("#lenguaje-list").append("<li>"+lenguajes[itemTwo]+"</li>");
+        $("#plataforma-list").append("<li>"+plataformas[itemTwo]+"</li>");
+        $("#progreso-list").append("<li>"+progresos[itemTwo]+"</li>");
+        itemTwo++;
+      }
+    }
+  }
+
+  var idiomas =["Espa&ntilde;ol", "Ingl&eacute;s"]
+  var escribir = ["Nativo", "Avanzado"];
+  var hablar = ["Nativo", "Avanzado"]
+  var escuchar = ["Nativo", "Avanzado"]
+
+  var idiomaTitle = ["Idioma", "Escribir", "Hablar", "Escuchar"];
+  var secondText = "list idiomas";
+
+  function addElementToTerminalLanguage(){
+    $('#idioma-box').append(secondText[currentItem]);
+    currentItem++;
+    if( itemTwo == idiomas.length ){
+      clearInterval(interval);
+      return;
+    }
+    if( currentItem > secondText.length ){
+      if(!titlesPrinted){
+        $(".idioma-title").append(idiomaTitle[0]);
+        $(".escribir-title").append(idiomaTitle[1]);
+        $(".hablar-title").append(idiomaTitle[2]);
+        $(".escuchar-title").append(idiomaTitle[3]);
+        titlesPrinted = true;
+      } else {
+        $("#idioma-list").append("<li>"+idiomas[itemTwo]+"</li>");
+        $("#escribir-list").append("<li>"+escribir[itemTwo]+"</li>");
+        $("#hablar-list").append("<li>"+hablar[itemTwo]+"</li>");
+        $("#escuchar-list").append("<li>"+escuchar[itemTwo]+"</li>");
+        itemTwo++;
+      }
+    }
+  }
+
+  function verSnack(){
+    $('#myModal').modal('show')
+  }
+
+  //Experiencia Laboral
+  var principal = {
+    desde:"Enero 2014",
+    hasta:"Presente",
+    empresa: "Freelance FullStack Developer",
+    industria: "Desarrollo Software",
+    actual: "App iOS y Android: Wodap",
+    puesto: "Desarrollador Fullstack",
+    tipo: "Desarrollador",
+    responsabilidades: "Me dedico al desarrollo de aplicaciones m&oacute;viles, aplicaciones web, servidores, y aplicaciones standalone. Actualmente trabajo en una app llamada Wodap.  <a href='#' onclick='verSnack()'>Ver Ejemplo</a>."
+  }
+
+  var serinse = {
+    desde:"Enero 2017",
+    hasta:"Presente",
+    empresa: "Serinse S.A",
+    industria: "Servicios",
+    puesto: "Asesor de Sistemas",
+    tipo: "Asesor",
+    responsabilidades: "Asesor&iacute;as en administraci&oacute;n de celulares y computadores. Mantenimiento de redes, computadores y servidores. Desarrollo y mantenimiento de aplicaci&oacute;n web para administraci&oacute;n de la oficina."
+  }
+  var ayala = {
+    desde:"Enero 2017",
+    hasta:"Presente",
+    empresa: "Ayala Consulting",
+    industria: "Consultor&iacute;a",
+    puesto: "Desarrollador Aplicaciones M&oacute;viles",
+    tipo: "L&iacute;der de Proyecto",
+    responsabilidades: "Dise&ntilde;o y desarrollo de 3 aplicaciones m&oacute;viles para usos espec&iacute;ficos de la empresa."
+  }
+
+  var lansey = {
+    desde:"Enero 2017",
+    hasta:"Presente",
+    empresa: "Lansey S.A ",
+    industria: "Higiene y Perfumer&iacute;a ",
+    puesto: "Asistente De Sistemas ",
+    tipo: "L&iacute;der de Proyecto",
+    responsabilidades: "Configuraci&oacute;n y actualizaci&oacute;n de computadores, instalaci&oacute;n de software, reparaci&oacute;n de computadores. Se actualizaron efectivamente 40 computadores."
+  }
+
+  var experiencias = [principal, serinse, ayala, lansey];
+
+  function addExperienciaLaboral(experiencia){
+    var string = "<div class='col-md-5 experiencia'>";
+       string += "<p class='bold'>"+experiencia.desde+" - "+experiencia.hasta+"</p>";
+       string += "<p><span class='bold'>Empresa: </span>"+experiencia.empresa+" - <span class='bold'>Industria: </span>"+experiencia.industria+"</p>";
+       string += "<p><span class='bold'>Puesto: </span>"+experiencia.puesto+" - <span class='bold'>Tipo: </span>"+experiencia.tipo+"</p>";
+       string += "<p><span class='bold'>Responsabilidades: </span>"+experiencia.responsabilidades+"</p>";
+       string += "</div>";
+       string += "<div class='col-md-1 experiencia-sep'></div>"
+    return string;
+  }
+  </script>
+</body>
+</html>
