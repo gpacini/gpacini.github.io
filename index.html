@@ -362,8 +362,10 @@
         <p><span class="bold">Tel&eacute;fono: </span>2455175</p>
         <p><span class="bold">Celular: </span>0995345899</p>
         <p><span class="bold">Correo: </span>gpacinip@gmail.com</p>
+        <!--
         <p><span class="bold">Correo: </span>gpacini@estud.usfq.edu.ec</p>
         <p><span class="bold">CV: </span><a href='https://gpacini.github.io'>https://gpacini.github.io</a></p>
+        -->
       </div>
     </div>
     <div id="content">
@@ -371,7 +373,7 @@
         <h2>&lt;Habilidades &sol;&gt;</h2>
         <div class="col-md-4 offset-md-4 text-center">
           <h3>Desarrollador Fullstack</h3>
-        </div>   
+        </div>
         <div class="col-md-12 ">
           <img id="terminal-img" src="images/terminal.png" />
           <div id="over-image-text">
@@ -486,10 +488,45 @@
   var itemTwo = 0;
   var titlesPrinted = false;
   var titles = ["Habilidad", "Lenguaje", "Conocimiento"];
-
-  var habilidades =["JavaEE"     ,"React-Native", "MySQL"  ,"JQuery"    ,"Android" ,"iOS"   , "CodeIgniter", "NodeJS"    , "React"];
-  var lenguajes =  ["Java"       ,"JavaScript"  , "SQL"    ,"JavaScript","Java"    ,"Swift" , "PHP"        , "JavaScript", "JavaScript"];
-  var progresos =  ["100/100"    ,"90/100"      , "100/100","80/100"    ,"100/100" ,"50/100", "80/100"     , "70/100"    , "80/100"];
+  var habilidades = [
+    {
+      'habilidad':'JavaEE',
+      'lenguaje':'Java',
+      'progreso':'100/100'
+    },{
+      'habilidad':'React-Native',
+      'lenguaje':'JavaScript',
+      'progreso':'90/100'
+    },{
+      'habilidad':'MySQL',
+      'lenguaje':'SQL',
+      'progreso':'80/100'
+    },{
+      'habilidad':'JQuery',
+      'lenguaje':'JavaScript',
+      'progreso':'80/100'
+    },{
+      'habilidad':'Android',
+      'lenguaje':'Java',
+      'progreso':'100/100'
+    },{
+      'habilidad':'iOS',
+      'lenguaje':'Swift',
+      'progreso':'50/100'
+    },{
+      'habilidad':'CodeIgniter',
+      'lenguaje':'PHP',
+      'progreso':'80/100'
+    },{
+      'habilidad':'NodeJS',
+      'lenguaje':'JavaScript',
+      'progreso':'70/100'
+    },{
+      'habilidad':'React',
+      'lenguaje':'JavaScript',
+      'progreso':'80/100'
+    },
+  ];
 
   var idiomaTitle = ["Idioma", "Escribir", "Hablar", "Escuchar"];
 
@@ -509,14 +546,12 @@
       if(!titlesPrinted){
         $(".habilidad-title").append(titles[0]);
         $(".lenguaje-title").append(titles[1]);
-        $(".plataforma-title").append(titles[2]);
-        $(".progreso-title").append(titles[3]);
+        $(".progreso-title").append(titles[2]);
         titlesPrinted = true;
       } else {
-        $("#habilidad-list").append("<li>"+habilidades[itemTwo]+"</li>");
-        $("#lenguaje-list").append("<li>"+lenguajes[itemTwo]+"</li>");
-        $("#plataforma-list").append("<li>"+plataformas[itemTwo]+"</li>");
-        $("#progreso-list").append("<li>"+progresos[itemTwo]+"</li>");
+        $("#habilidad-list").append("<li>"+habilidades[itemTwo].habilidad+"</li>");
+        $("#lenguaje-list").append("<li>"+habilidades[itemTwo].lenguaje+"</li>");
+        $("#progreso-list").append("<li>"+habilidades[itemTwo].progreso+"</li>");
         itemTwo++;
       }
     }
