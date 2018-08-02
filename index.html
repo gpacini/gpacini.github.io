@@ -512,7 +512,8 @@
       hablar = hablar_es;
       escuchar = escuchar_es;
       secondText = secondText_es;
-
+      experiencias = experiencias_es;
+      experiencias_titles = experiencias_titles_es;
     } else {
       $('#age').html(myAge + ' years old');
       $('.en').css("display", "block");
@@ -526,6 +527,8 @@
       hablar = hablar_en;
       escuchar = escuchar_en;
       secondText = secondText_en;
+      experiencias = experiencias_en;
+      experiencias_titles = experiencias_titles_en;
     }
     resetTerminal();
 
@@ -745,7 +748,7 @@
     responsabilidades: "5 years working on mobile apps, web apps, servers, and standalone apps development."
   }
 
-  var serinse = {
+  var serinse_es = {
     desde:"Enero 2017",
     hasta:"Junio 2018",
     empresa: "Serinse S.A",
@@ -754,7 +757,18 @@
     tipo: "Asesor",
     responsabilidades: "Asesor&iacute;as en administraci&oacute;n de celulares y computadores. Mantenimiento de redes, computadores y servidores. Desarrollo y mantenimiento de aplicaci&oacute;n web para administraci&oacute;n de la oficina."
   }
-  var ayala = {
+
+  var serinse_en = {
+    desde:"January 2017",
+    hasta:"June 2018",
+    empresa: "Serinse S.A",
+    industria: "Marketing Services",
+    puesto: "Technology Department Asistant",
+    tipo: "Asistant",
+    responsabilidades: "Mobile phone management, computer management, web app development, server maintenance."
+  }
+
+  var ayala_es = {
     desde:"Septiembre 2017",
     hasta:"Diciembre 2017",
     empresa: "Ayala Consulting",
@@ -764,7 +778,17 @@
     responsabilidades: "Dise&ntilde;o y desarrollo de 3 aplicaciones m&oacute;viles para usos espec&iacute;ficos de la empresa."
   }
 
-  var lansey = {
+  var ayala_en = {
+    desde:"September 2017",
+    hasta:"December 2017",
+    empresa: "Ayala Consulting",
+    industria: "Consultants",
+    puesto: "Mobile App Development",
+    tipo: "Proyect Leader",
+    responsabilidades: "Development and design of three mobile apps for internal use."
+  }
+
+  var lansey_es = {
     desde:"Octubre 2012",
     hasta:"Enero 2013",
     empresa: "Lansey S.A ",
@@ -774,14 +798,30 @@
     responsabilidades: "Configuraci&oacute;n y actualizaci&oacute;n de computadores, instalaci&oacute;n de software, reparaci&oacute;n de computadores. Se actualizaron efectivamente 40 computadores."
   }
 
-  var experiencias = [ennube, principal, serinse, ayala, lansey];
+  var lansey_en = {
+    desde:"October 2012",
+    hasta:"January 2013",
+    empresa: "Lansey S.A ",
+    industria: "Cosmetics",
+    puesto: "Technology Department Asistant",
+    tipo: "Proyect Leader",
+    responsabilidades: "Software configuration and installation on 40 different computers."
+  }
+
+  var experiencias_es = [ennube_es, principal_es, serinse_es, ayala_es, lansey_es];
+  var experiencias_en = [ennube_en, principal_en, serinse_en, ayala_en, lansey_en];
+  var experiencias = experiencias_en;
+
+  var experencias_titles_es = ['Empresa', 'Industria', 'Puesto', 'Tipo', 'Responsabilidades'];
+  var experencias_titles_en = ['Company', 'Industry', 'Job', 'Type', 'Responsibilities'];
+  var experencias_titles = experencias_titles_en;
 
   function addExperienciaLaboral(experiencia){
     var string = "<div class='col-md-5 experiencia'>";
        string += "<p class='bold'>"+experiencia.desde+" - "+experiencia.hasta+"</p>";
-       string += "<p><span class='bold'>Empresa: </span>"+experiencia.empresa+" - <span class='bold'>Industria: </span>"+experiencia.industria+"</p>";
-       string += "<p><span class='bold'>Puesto: </span>"+experiencia.puesto+" - <span class='bold'>Tipo: </span>"+experiencia.tipo+"</p>";
-       string += "<p><span class='bold'>Responsabilidades: </span>"+experiencia.responsabilidades+"</p>";
+       string += "<p><span class='bold'>"+experencias_titles[0] +": </span>"+experiencia.empresa+" - <span class='bold'>"+experencias_titles[1] +": </span>"+experiencia.industria+"</p>";
+       string += "<p><span class='bold'>"+experencias_titles[2] +": </span>"+experiencia.puesto+" - <span class='bold'>"+experencias_titles[3] +": </span>"+experiencia.tipo+"</p>";
+       string += "<p><span class='bold'>"+experencias_titles[4] +": </span>"+experiencia.responsabilidades+"</p>";
        string += "</div>";
        string += "<div class='col-md-1 experiencia-sep'></div>"
     return string;
