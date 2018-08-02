@@ -357,7 +357,7 @@
       </div>
 
       <div class="col-md-12">
-        <p>26 a&ntilde;os</p>
+        <p class='age'></p>
         <p>Quito, Pichincha, Ecuador</p>
         <p><span class="bold">Direcci&oacute;n: </span>Av. El Parque N43</p>
         <p><span class="bold">Tel&eacute;fono: </span>2455175</p>
@@ -478,6 +478,10 @@
       return $(this).height();
     }).get());
     $(".experiencia").height(maxHeight);
+
+    //Lets set up all the values
+    $('.age').html(myAge + ' a$ntilde;os');
+
   });
 
   var firstText = "list habilidades lenguaje conocimiento";
@@ -529,7 +533,7 @@
       'progreso':'80/100'
     },
   ];
-  
+
 
   var idiomaTitle = ["Idioma", "Escribir", "Hablar", "Escuchar"];
 
@@ -660,6 +664,15 @@
        string += "<div class='col-md-1 experiencia-sep'></div>"
     return string;
   }
+
+  function getAge(d1, d2){
+      d2 = d2 || new Date();
+      var diff = d2.getTime() - d1.getTime();
+      return Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
+  }
+
+  var myAge = getAge(new Date(1991, 07, 29));
+
   </script>
 </body>
 </html>
