@@ -506,6 +506,8 @@
 
       firstText = firstText_es;
       titles = titles_es;
+      idiomaTitle = idiomaTitle_es;
+      idiomas = idiomas_es;
     } else {
       $('#age').html(myAge + ' years old');
       $('.en').css("display", "block");
@@ -513,6 +515,8 @@
 
       firstText = firstText_en;
       titles = titles_en;
+      idiomaTitle = idiomaTitle_en;
+      idiomas = idiomas_en;
     }
   }
 
@@ -546,7 +550,7 @@
   var itemTwo = 0;
   var titlesPrinted = false;
   var titles_es = ["Habilidad", "Lenguaje", "Conocimiento"];
-  var titles_en = ["Abilitie", "Language", "Knowledge"];
+  var titles_en = ["Abilities", "Language", "Knowledge"];
   var titles = titles_en;
   var habilidades = [
     {
@@ -593,7 +597,9 @@
   ];
 
 
-  var idiomaTitle = ["Idioma", "Escribir", "Hablar", "Escuchar"];
+  var idiomaTitle_es = ["Idioma", "Escribir", "Hablar", "Escuchar"];
+  var idiomaTitle_en = ["Language", "Writing", "Talking", "Listening"];
+  var idiomaTitle = idiomaTitle_en;
 
   function addElementToTerminal(){
     $('#list-box').append(firstText[currentItem]);
@@ -622,7 +628,9 @@
     }
   }
 
-  var idiomas =["Espa&ntilde;ol", "Ingl&eacute;s"]
+  var idiomas_es =["Espa&ntilde;ol", "Ingl&eacute;s"]
+  var idiomas_en =["Spanish", "English"];
+  var idiomas = idiomas_en;
   var escribir = ["Nativo", "Avanzado"];
   var hablar = ["Nativo", "Avanzado"]
   var escuchar = ["Nativo", "Avanzado"]
