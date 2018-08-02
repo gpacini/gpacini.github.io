@@ -540,14 +540,7 @@
     interval = setInterval(addElementToTerminal, 80);
   }
 
-  $(window).on("load", function(){
-
-    var language = navigator.language;
-    spanish = language.includes("es");
-    setupLanguage();
-
-    resetTerminal();
-    
+  function mapExperiences(){
     experiencias.map((v, i)=> {
       $("#experiencia .row").append(addExperienciaLaboral(v));
     });
@@ -556,6 +549,16 @@
       return $(this).height();
     }).get());
     $(".experiencia").height(maxHeight);
+  }
+
+  $(window).on("load", function(){
+
+    var language = navigator.language;
+    spanish = language.includes("es");
+    setupLanguage();
+
+    resetTerminal();
+    mapExperiences();
   });
 
   var firstText_es = "list habilidades lenguaje conocimiento";
