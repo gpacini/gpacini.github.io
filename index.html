@@ -528,6 +528,8 @@
       secondText = secondText_en;
     }
     resetTerminal();
+
+    mapExperiences();
   }
 
   function changeLanguage(language){
@@ -556,9 +558,6 @@
     var language = navigator.language;
     spanish = language.includes("es");
     setupLanguage();
-
-    resetTerminal();
-    mapExperiences();
   });
 
   var firstText_es = "list habilidades lenguaje conocimiento";
@@ -666,7 +665,7 @@
   var secondText_es = "list idiomas";
   var secondText_en = "list languages";
   var secondText = secondText_en;
-  
+
 
   function addElementToTerminalLanguage(){
     $('#idioma-box').append(secondText[currentItem]);
