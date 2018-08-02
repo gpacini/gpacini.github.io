@@ -471,6 +471,9 @@
   };
 
   $(window).on("load", function(){
+    //Lets set up all the values
+    $('#age').html(myAge + ' a$ntilde;os');
+
     interval = setInterval(addElementToTerminal, 80);
     experiencias.map((v, i)=> {
       $("#experiencia .row").append(addExperienciaLaboral(v));
@@ -480,10 +483,6 @@
       return $(this).height();
     }).get());
     $(".experiencia").height(maxHeight);
-
-    //Lets set up all the values
-    $('.age').html(myAge + ' a$ntilde;os');
-
   });
 
   var firstText = "list habilidades lenguaje conocimiento";
