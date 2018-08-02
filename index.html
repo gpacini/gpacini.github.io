@@ -496,9 +496,15 @@
     return elementBottom > viewportTop && elementTop < viewportBottom;
   };
 
-  //I don't get why are you looking at this page code? Is there something you need? Call me or write me an email and I'll help you ;)
+  //I don't get why are you looking at this page code?
+  //Is there something you need? Call me or write me an email and I'll help you ;)
+
+  //But I must warn you, if you keep looking, you'll see I love to sing :o
 
   var spanish = false;
+
+  //At first, I was afraid, I was petrified
+  //Kept thinking, I could never live without you by my side
 
   function setupLanguage(){
     if( spanish ){
@@ -534,13 +540,23 @@
     }
     resetTerminal();
 
+    //But then I spent so many nights thinking, how you did me wrong
+    //And I grew strong and I learned how to get along
+
     mapExperiences();
   }
+
+  //And so you're back from outer space
+  //I just walked in to find you here with that sad look upon your face
 
   function changeLanguage(language){
     spanish = language.includes('es');
     setupLanguage();
   }
+
+  //I should have changed that stupid lock
+  //I should have made you leave your key
+  //If I'd known for just one second you'd be back to bother me
 
   function resetTerminal(){
     currentItem = 0;
@@ -550,6 +566,9 @@
     $('#list-box').html("Giancarlo Pacini: $ ");
     interval = setInterval(addElementToTerminal, 80);
   }
+
+  //Is this the real life? Is this just fantasy?
+  //Caught in a landslide, no escape from reality
 
   function mapExperiences(){
     experiencias.map((v, i)=> {
@@ -562,6 +581,9 @@
     $(".experiencia").height(maxHeight);
   }
 
+  //Open your eyes, look up to the skies and see
+  //I'm just a poor boy, I need no sympathy
+
   $(window).on("load", function(){
 
     var language = navigator.language;
@@ -569,6 +591,8 @@
     setupLanguage();
   });
 
+  //Because I'm easy come, easy go, little high, little low
+  //Any way the wind blows doesn't really matter to me, to me
 
 
 
@@ -579,6 +603,10 @@
   var interval;
   var itemTwo = 0;
   var titlesPrinted = false;
+
+  //Mama, just killed a man
+  //Put a gun against his head, pulled my trigger, now he's dead
+
   var titles_es = ["Habilidad", "Lenguaje", "Conocimiento"];
   var titles_en = ["Ability", "Language", "Knowledge"];
   var titles = titles_en;
@@ -627,9 +655,16 @@
   ];
 
 
+  //Mama, life had just begun
+  //But now I've gone and thrown it all away
+
   var idiomaTitle_es = ["Idioma", "Escribir", "Hablar", "Escuchar"];
   var idiomaTitle_en = ["Language", "Writing", "Talking", "Listening"];
   var idiomaTitle = idiomaTitle_en;
+
+  //Mama, ooh, didn't mean to make you cry
+  //If I'm not back again this time tomorrow
+  //Carry on, carry on as if nothing really matters
 
   function addElementToTerminal(){
     $('#list-box').append(firstText[currentItem]);
@@ -662,22 +697,33 @@
   var idiomas_en =["Spanish", "English"];
   var idiomas = idiomas_en;
 
+  //Too late, my time has come
+
   var escribir_es = ["Nativo", "Avanzado"];
   var escribir_en = ["Native", "Advanced"];
   var escribir = escribir_en;
+
+  //Sends shivers down my spine, body's aching all the time
 
   var hablar_es = ["Nativo", "Avanzado"];
   var hablar_en = ["Native", "Advanced"];
   var hablar = hablar_en;
 
+  //Goodbye, everybody, I've got to go
+  //Gotta leave you all behind and face the truth
+
   var escuchar_es = ["Nativo", "Avanzado"];
   var escuchar_en = ["Native", "Advanced"];
   var escuchar = escuchar_en;
+
+  //Mama, ooh, (any way the wind blows)
 
   var secondText_es = "list idiomas";
   var secondText_en = "list languages";
   var secondText = secondText_en;
 
+  //I don't want to die
+  //I sometimes wish I'd never been born at all
 
   function addElementToTerminalLanguage(){
     $('#idioma-box').append(secondText[currentItem]);
@@ -703,9 +749,15 @@
     }
   }
 
+  //Yes, I understand that every life must end, uh-huh
+  //As we sit alone, I know someday we must go, uh-huh
+
   function verSnack(){
     $('#myModal').modal('show')
   }
+
+  //Oh I'm a lucky man, to count on both hands the ones I love
+  //Some folks just have one, yeah, others, they've got none
 
   //Experiencia Laboral
 
@@ -727,6 +779,10 @@
     tipo: "Desarrollador",
     responsabilidades: "Desarrollo de interfaz y software en Salesforce."
   }
+
+
+  //Stay with me...
+  //Let's just breathe...
 
   var principal_es = {
     desde:"Enero 2013",
@@ -750,6 +806,10 @@
     responsabilidades: "5 years working on mobile apps, web apps, servers, and standalone apps development."
   }
 
+  //Practiced are my sins, never gonna let me win, uh-huh
+  //Under everything, just another human being, uh-huh
+  //I don't wanna hurt, there's so much in this world to make me bleed
+
   var serinse_es = {
     desde:"Enero 2017",
     hasta:"Junio 2018",
@@ -769,6 +829,10 @@
     tipo: "Asistant",
     responsabilidades: "Mobile phone management, computer management, web app development, server maintenance."
   }
+
+
+  //Stay with me
+  //You're all I see...
 
   var ayala_es = {
     desde:"Septiembre 2017",
@@ -790,6 +854,9 @@
     responsabilidades: "Development and design of three mobile apps for internal use."
   }
 
+  //Did I say that I need you?
+  //Did I say that I want you?
+
   var lansey_es = {
     desde:"Octubre 2012",
     hasta:"Enero 2013",
@@ -810,13 +877,23 @@
     responsabilidades: "Software configuration and installation on 40 different computers."
   }
 
+  //Oh, if I didn't I'm a fool you see
+  //No one knows this more than me
+
   var experiencias_es = [ennube_es, principal_es, serinse_es, ayala_es, lansey_es];
   var experiencias_en = [ennube_en, principal_en, serinse_en, ayala_en, lansey_en];
   var experiencias = experiencias_en;
 
+
+  //As I come clean...
+  //I wonder everyday, as I look upon your face, uh-huh
+
   var experiencias_titles_es = ['Empresa', 'Industria', 'Puesto', 'Tipo', 'Responsabilidades'];
   var experiencias_titles_en = ['Company', 'Industry', 'Job', 'Type', 'Responsibilities'];
   var experiencias_titles = experencias_titles_en;
+
+  //Everything you gave
+  //And nothing you would take, oh no
 
   function addExperienciaLaboral(experiencia){
     var string = "<div class='col-md-5 experiencia'>";
@@ -836,6 +913,8 @@
       var diff = d2.getTime() - d1.getTime();
       return Math.floor(diff / (1000 * 60 * 60 * 24 * 365.25));
   }
+
+  //Thank you for listening my beautiful voice. Now you should call me for a show! :)
 
   var myAge = getAge(new Date(1991, 07, 29));
 
