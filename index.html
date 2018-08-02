@@ -538,6 +538,10 @@
   }
 
   function resetTerminal(){
+    currentItem = 0;
+    interval;
+    itemTwo = 0;
+    titlesPrinted = false;
     $('#list-box').html("Giancarlo Pacini: $ ");
     interval = setInterval(addElementToTerminal, 80);
   }
@@ -561,7 +565,7 @@
   });
 
 
-  
+
 
   var firstText_es = "list habilidades lenguaje conocimiento";
   var firstText_en = "list abilities language knowledge";
