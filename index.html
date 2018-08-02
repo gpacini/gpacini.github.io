@@ -6,6 +6,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <link href="open-iconic/font/css/open-iconic-bootstrap.css" rel="stylesheet">
 <style>
+    .es {
+      display: none;
+    }
+    .en {
+      display: inherit;
+    }
 
     .timeline {
         list-style: none;
@@ -335,16 +341,20 @@
                 <a class="nav-link" href="#content"><span class="oi oi-home" title="home" aria-hidden="true"></span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#habilidades">Habilidades <span class="oi oi-terminal" title="terminal" aria-hidden="true"></span></a>
+                <a class="nav-link es" href="#habilidades">Habilidades <span class="oi oi-terminal" title="terminal" aria-hidden="true"></span></a>
+                <a class="nav-link en" href="#habilidades">Abilities <span class="oi oi-terminal" title="terminal" aria-hidden="true"></span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#experiencia">Experiencia <span class="oi oi-monitor" title="monitor" aria-hidden="true"></span></a>
+                <a class="nav-link es" href="#experiencia">Experiencia <span class="oi oi-monitor" title="monitor" aria-hidden="true"></span></a>
+                <a class="nav-link en" href="#experiencia">Experience <span class="oi oi-monitor" title="monitor" aria-hidden="true"></span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#estudios">Estudios <span class="oi oi-task" title="task" aria-hidden="true"></span></a>
+                <a class="nav-link es" href="#estudios">Estudios <span class="oi oi-task" title="task" aria-hidden="true"></span></a>
+                <a class="nav-link en" href="#estudios">Studies <span class="oi oi-task" title="task" aria-hidden="true"></span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#otros">Otros <span class="oi oi-circle-check" title="circle-check" aria-hidden="true"></span></a>
+                <a class="nav-link es" href="#otros">Otros <span class="oi oi-circle-check" title="circle-check" aria-hidden="true"></span></a>
+                <a class="nav-link en" href="#otros">Other <span class="oi oi-circle-check" title="circle-check" aria-hidden="true"></span></a>
               </li>
             </ul>
           </div>
@@ -353,7 +363,7 @@
     </div>
     <div id="perfil">
       <div class="col-md-8 offset-md-2">
-        <img src="images/yo.jpg" />
+        <img src="images/yo_s.jpg" />
       </div>
 
       <div class="col-md-12">
@@ -470,9 +480,30 @@
     return elementBottom > viewportTop && elementTop < viewportBottom;
   };
 
+  var spanish = false;
+
+  function setupLanguage(){
+    if( spanish ){
+      $('#age').html(myAge + ' a$ntilde;os');
+      $('.es').style("display", "block");
+      $('.en').style("display", "none");
+    } else {
+      $('#age').html(myAge + ' years old');
+      $('.en').style("display", "block");
+      $('.es').style("display", "none");
+    }
+  }
+
+  function changeLanguage(var language){
+    spanish = language.includes('es');
+    setupLanguage();
+  }
+
   $(window).on("load", function(){
-    //Lets set up all the values
-    $('#age').html(myAge + ' a$ntilde;os');
+
+    var language = navigator.language;
+    spanish = language.includes("es");
+    setupLanguage();
 
     interval = setInterval(addElementToTerminal, 80);
     experiencias.map((v, i)=> {
