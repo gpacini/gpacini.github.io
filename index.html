@@ -508,6 +508,11 @@
       titles = titles_es;
       idiomaTitle = idiomaTitle_es;
       idiomas = idiomas_es;
+      escribir = escribir_es;
+      hablar = hablar_es;
+      escuchar = escuchar_es;
+      secondText = secondText_es;
+
     } else {
       $('#age').html(myAge + ' years old');
       $('.en').css("display", "block");
@@ -517,12 +522,22 @@
       titles = titles_en;
       idiomaTitle = idiomaTitle_en;
       idiomas = idiomas_en;
+      escribir = escribir_en;
+      hablar = hablar_en;
+      escuchar = escuchar_en;
+      secondText = secondText_en;
     }
+    resetTerminal();
   }
 
   function changeLanguage(language){
     spanish = language.includes('es');
     setupLanguage();
+  }
+
+  function resetTerminal(){
+    $('#list-box').html("Giancarlo Pacini: $ ");
+    interval = setInterval(addElementToTerminal, 80);
   }
 
   $(window).on("load", function(){
@@ -531,7 +546,8 @@
     spanish = language.includes("es");
     setupLanguage();
 
-    interval = setInterval(addElementToTerminal, 80);
+    resetTerminal();
+    
     experiencias.map((v, i)=> {
       $("#experiencia .row").append(addExperienciaLaboral(v));
     });
@@ -550,7 +566,7 @@
   var itemTwo = 0;
   var titlesPrinted = false;
   var titles_es = ["Habilidad", "Lenguaje", "Conocimiento"];
-  var titles_en = ["Abilities", "Language", "Knowledge"];
+  var titles_en = ["Ability", "Language", "Knowledge"];
   var titles = titles_en;
   var habilidades = [
     {
@@ -631,12 +647,22 @@
   var idiomas_es =["Espa&ntilde;ol", "Ingl&eacute;s"]
   var idiomas_en =["Spanish", "English"];
   var idiomas = idiomas_en;
-  var escribir = ["Nativo", "Avanzado"];
-  var hablar = ["Nativo", "Avanzado"]
-  var escuchar = ["Nativo", "Avanzado"]
 
-  var idiomaTitle = ["Idioma", "Escribir", "Hablar", "Escuchar"];
-  var secondText = "list idiomas";
+  var escribir_es = ["Nativo", "Avanzado"];
+  var escribir_en = ["Native", "Advanced"];
+  var escribir = escribir_en;
+
+  var hablar_es = ["Nativo", "Avanzado"];
+  var hablar_en = ["Native", "Advanced"];
+  var hablar = hablar_en;
+
+  var escuchar_es = ["Nativo", "Avanzado"];
+  var escuchar_en = ["Native", "Advanced"];
+  var escuchar = escuchar_en;
+
+  var secondText_es = "list idiomas";
+  var secondText_en = "list languages";
+  var secondText = secondText_en;
 
   function addElementToTerminalLanguage(){
     $('#idioma-box').append(secondText[currentItem]);
